@@ -6,6 +6,10 @@ import './index.css'
 function SearchPage() {
   const [input,setInput] = useState('')
 
+  function pesquisar() {
+    alert('Valor do Input: ' + input);
+  }
+
   return (
     <div className='pagina'>
       <div className='side-header'>
@@ -23,12 +27,17 @@ function SearchPage() {
         size='small'
         value={input}
         onChange={(event)=>setInput(event.target.value)}
+        className='input-search'
         />
 
         <Button
         primary
         label='Pesquisar'
         color='#567A46'
+        alignSelf='start'
+        size='large'
+        className='btn-search'
+        onClick={pesquisar}
         />
       </div>
       
