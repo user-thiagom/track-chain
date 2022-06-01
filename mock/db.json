@@ -1,0 +1,33 @@
+{
+    "contratos": [
+        {
+            "id": 11,
+            "entrega": {
+                "responsavelTransporte": {
+                    "cnpj": "4641",
+                    "nome": "Mamma mia express"
+                },
+                "transporte": {
+                    "identificadorVeiculo": "cnp123f",
+                    "emissaoPorKm": "15",
+                    "tipoVeiculo": "Carro"
+                },
+                "descricaoEntrega": null,
+                "localEntrega": "Rua candido xx, 341",
+                "localRecebimento": "Rua marcos silsasauro, 102",
+                "distanciaMedia": 95
+            },
+            "produto": {
+                "descricao": "Produto de cozinha genérico"
+            },
+            "remetente": {
+                "cnpj": "4141",
+                "nome": "Cozinha certa!"
+            },
+            "destinatario": {
+                "cnpj": "1141",
+                "nome": "Restaurante julio cesar"
+            }
+        }
+    ]
+}

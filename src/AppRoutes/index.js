@@ -6,8 +6,8 @@ import TrackingPage from '../Pages/TrackingPage'
 function index() {
   return (
     <Routes>
-        <Route path='/' element={<SearchPage/>}/>
-        <Route path='tracking' element={<TrackingPage/>}/>
+        <Route path='search' element={<SearchPage/>}/>
+        <Route path='/' element={<TrackingPage/>}/>
     </Routes>
   )
 }

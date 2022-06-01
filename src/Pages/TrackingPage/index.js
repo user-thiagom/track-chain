@@ -5,9 +5,9 @@ function TrackingPage() {
   return (
     <div>
         <h1>Tela de Rastreamento</h1>
-        <nav>
+        {/*<nav>
             <Link to="/">Tela de Pesquisa</Link>
-        </nav>
+        </nav>*/}
     </div>
   )
 }

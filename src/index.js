@@ -9,3 +9,5 @@ root.render(
     <App /> 
   </React.StrictMode>
 );
+
+//Comando para rodar o json server: npm run server
