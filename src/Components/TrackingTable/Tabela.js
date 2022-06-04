@@ -5,29 +5,40 @@ function Tabela({ dados, gridArea, clickRow }) {
     const [dadosT, setDadosT] = useState(dados)
 
     return (
-        <Box gridArea={gridArea} alignSelf='center'>
+        <Box wrap direction='row' justify='center' align='center' overflow='auto' fill='horizontal'>
             <DataTable
                 columns={[
                     {
                         property: "id",
                         header: <Text>Id</Text>,
-                        primary: true
+                        primary: true,
+                        
                     },
                     {
                         property: "localRecebimento",
-                        header: <Text>Ultima atualização</Text>
+                        header: <Text>Ultima atualização</Text>,
                     },
                     {
                         property: "statusEntrega",
                         header: <Text>Status</Text>
                     }
                 ]}
+                border={{
+                    color: 'brand',
+                    side: 'all',
+                    size: '1px'
+                }}
+                background={{
+                    header: 'brand',
+                    body: 'light-5'
+                }}
                 data={dadosT}
                 sortable={true}
-                onClickRow={({datum})=>{clickRow(datum)}}
-                background='dark-2'
+                onClickRow={({ datum }) => { clickRow(datum) }}
                 alignSelf='center'
-                verticalAlign='top'
+                verticalAlign='middle'
+                size='medium'
+                className='tracking-table'
             />
         </Box>
     )
