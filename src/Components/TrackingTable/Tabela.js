@@ -9,8 +9,8 @@ function Tabela({ dados, gridArea, clickRow }) {
             <DataTable
                 columns={[
                     {
-                        property: "id",
-                        header: <Text>Id</Text>,
+                        property: "key",
+                        header: <Text>Key</Text>,
                         primary: true,
                         
                     },

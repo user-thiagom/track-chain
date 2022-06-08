@@ -27,16 +27,16 @@ function TrackingPage() {
   }, [])
 
   function click(datum) {
-    setId(datum.id)
+    setId(datum.key)
     setShow(true)
     console.log(datum)
   }
 
   const teste = contracts.map((con) => {
     return {
-      id: con.id,
+      key: con.key,
       localRecebimento: con.entrega.localRecebimento,
-      statusEntrega: "Entregue"
+      statusEntrega: con.entrega.foiEntregue ? "Entregue" : "A caminho"
     }
   })
 
