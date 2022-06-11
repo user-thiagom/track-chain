@@ -1,0 +1,13 @@
+.txtTitle{
+    font-size: 18px;
+}
+
+.txtContent{
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.card:hover{
+    background-color: rgb(227, 227, 234);
+    box-shadow: 2px 2px 5px rgba(110, 110, 113, 0.511);
+}

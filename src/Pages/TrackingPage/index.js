@@ -3,7 +3,7 @@ import { Location, Clipboard, Menu } from 'grommet-icons'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import SideMenu from '../../Components/SideMenu/SideMenu'
-import Tabela from '../../Components/TrackingTable/Tabela'
+import TrackingCards from '../../Components/TrackingCards/TrackingCards'
 import WaitSpinner from '../../Components/WaitSpinner'
 import { api } from '../../Services/api'
 import TrackingOverlay from '../TrackingOverlayPage'
@@ -35,8 +35,11 @@ function TrackingPage() {
   const teste = contracts.map((con) => {
     return {
       key: con.key,
-      localRecebimento: con.entrega.localRecebimento,
-      statusEntrega: con.entrega.foiEntregue ? "Entregue" : "A caminho"
+      ultimoEndereco: con.entrega.localRecebimento,
+      situacao: con.entrega.foiEntregue ? "Entregue" : "Em transporte",
+      responEntrega: con.entrega.responsavelTransporte.nome,
+      destinatario: con.destinatario.nome,
+
     }
   })
 
@@ -47,13 +50,13 @@ function TrackingPage() {
   }
 
   return (
-    <Box
-    direction='column'
-    justify='center'
-    overflow='auto'
-    height='100vh'
+    <Box // Container
+      direction='column'
+      justify='center'
+      overflow='auto'
+      height='100vh'
     >
-      <Box
+      <Box //Caixa que contem o conteudo da página
         direction='row'
         align='center'
         justify='start'
@@ -65,27 +68,45 @@ function TrackingPage() {
           <SideMenu handlerFunction={setShowBar} />
         )}
 
-        <Box width='small' fill='vertical' direction='column' justify='start' pad={{ top: '3px' }}>
-          {!showBar && (
-            <Button icon={<Menu />} onClick={() => { setShowBar(true) }} primary hoverIndicator margin={{ left: '2px' }} />
-          )}
+        <Box //Div menu lateral
+          fill='vertical'
+          direction='column'
+          justify='start'
+          align='center'
+          pad={{ top: '3px' }}
+        >
+
+
+          <Button
+            icon={<Menu size='large' />}
+            onClick={() => { setShowBar(true) }}
+            hoverIndicator
+            margin={{ left: '30px', top: '30px' }}
+            className='btn-menu'
+          />
+
         </Box>
 
-        <Box height='100%'
+        <Box //Div do conteúdo da página
+          height='100%'
           direction='column'
           justify='between'
           align='center'
           fill='horizontal'
         >
-          <Box
-            justify='center'
-            align='start'
-            height='100%'
-            width='xlarge'
-            gap='small'
+          <Box //Caixa dos contratos
+            justify='start'
+            align='center'
+            width='xxlarge'
+            gap='medium'
+            margin='auto'
+            height='large'
+            elevation='medium'
+            background='light-1'
+            round='small'
           >
-            <h3>Encontramos os seguintes contratos</h3>
-            <Tabela dados={teste} clickRow={click} />
+            <Text size='24px'>Entregas Rastreáveis</Text>
+            <TrackingCards dados={teste} clickRow={click} />
           </Box>
         </Box>
 
@@ -98,7 +119,7 @@ function TrackingPage() {
             <Link to="/">Tela de Pesquisa</Link>
         </nav>*/}
       </Box>
-      <Footer fill='horizontal' background='brand' justify='center'>Rodapé</Footer>
+
     </Box>
   )
 }
