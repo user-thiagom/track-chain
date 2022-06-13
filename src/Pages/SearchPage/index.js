@@ -37,7 +37,7 @@ function SearchPage() {
         alignSelf='start'
         size='large'
         className='btn-search'
-        onClick={pesquisar}
+        href='/'
         />
       </div>
       
