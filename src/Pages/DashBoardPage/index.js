@@ -27,6 +27,31 @@ import { PieChart } from "../../Components/Charts/PieChart";
 import { LineChart } from "../../Components/Charts/LineChart";
 import { BarChart } from "../../Components/Charts/BarChart";
 
+export const fromJsonToChartData = (response) => {
+  let data = {
+    labels: [],
+    datasets: [
+      {
+        label: "",
+        data: [],
+        backgroundColor: [
+          "rgb(255, 99, 132)",
+          "rgb(54, 162, 235)",
+          "rgb(255, 205, 86)",
+        ],
+        hoverOffset: 4,
+      },
+    ],
+  };
+
+  Object.keys(response).map((key) => {
+    data.datasets[0].data.push(response[key]);
+    data.labels.push(key);
+  });
+
+  return data;
+};
+
 function Dashboard() {
   const [loading, setLoading] = useState(true);
   const [tiposDeVeiculos, setTiposDeVeiculos] = useState([]);
@@ -53,32 +78,6 @@ function Dashboard() {
       });
     }, 4000);
   }, []);
-
-  const fromJsonToChartData = (response) => {
-    let data = {
-      labels: [],
-      datasets: [
-        {
-          label: "",
-          data: [],
-          backgroundColor: [
-            "rgb(255, 99, 132)",
-            "rgb(54, 162, 235)",
-            "rgb(255, 205, 86)",
-          ],
-          hoverOffset: 4,
-        },
-      ],
-    };
-
-    Object.keys(response).map((key) => {
-      data.datasets[0].data.push(response[key]);
-      data.labels.push(key);
-    });
-
-    return data;
-  };
-
 
   if (loading) {
     return <WaitSpinner />;

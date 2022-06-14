@@ -3,13 +3,15 @@ import { Analytics, Download, History, Package } from 'grommet-icons'
 import React, { useEffect, useState } from 'react'
 import DeliveryHistorySection from '../../Components/DeliveryHistorySection'
 import ProductShippingSection from '../../Components/ProductShippingSection'
+import IndividualReportSection from '../../Components/IndividualReportSection'
 import WaitSpinner from '../../Components/WaitSpinner'
 import { api } from '../../Services/api'
 
 function TrackingOverlay({ id, handle }) {
     const [contract, setContract] = useState([])
+    const [relatorio,setRelatorio] = useState({})
     const [loading, setLoading] = useState(true)
-    const [secao, setSecao] = useState('historico');
+    const [secao, setSecao] = useState('historico')
     const [titulo, setTitulo] = useState('Histórico de Entrega')
 
     const corNavbar = '#06936D'
@@ -17,12 +19,15 @@ function TrackingOverlay({ id, handle }) {
 
     useEffect(() => {
         setTimeout(() => {
-            api.get("historico/"+id).then(response => {
+            api.get("contratoId").then(response => {
                 console.log(response.data)
-                setLoading(false)
                 setContract(response.data)
                 console.log(response);
             })
+            api.get('relatorioIndividual').then(response=>{
+                setRelatorio(response.data)
+            })
+            setLoading(false)
         }, 2000)
     }, [])
 
@@ -75,9 +80,9 @@ function TrackingOverlay({ id, handle }) {
                 background={corNavbar}
                 round='small'
                 >
-                    <Button icon={<Analytics/>} onClick={()=>{setSecao('relatorio'); setTitulo('Relatório da entrega');}} active={secao=='relatorio'?true:false} color={corNavbar} primary hoverIndicator={{background:{color:'accent-1',opacity:'weak'}}}/>
-                    <Button icon={<History/>} onClick={()=>{setSecao('historico'); setTitulo('Histórico da entrega');}} active={secao=='historico'?true:false} color={corNavbar} primary hoverIndicator={{background:{color:'accent-1',opacity:'weak'}}}/>
-                    <Button icon={<Package/>} onClick={()=>{setSecao('produto'); setTitulo('Produto e transporte')}} active={secao=='produto'?true:false} color={corNavbar} primary hoverIndicator={{background:{color:'accent-1',opacity:'weak'}}}/>
+                    <Button icon={<Analytics/>} onClick={()=>{setSecao('relatorio'); setTitulo('Relatório da entrega');}} active={secao==='relatorio'?true:false} color={corNavbar} primary hoverIndicator={{background:{color:'accent-1',opacity:'weak'}}}/>
+                    <Button icon={<History/>} onClick={()=>{setSecao('historico'); setTitulo('Histórico da entrega');}} active={secao==='historico'?true:false} color={corNavbar} primary hoverIndicator={{background:{color:'accent-1',opacity:'weak'}}}/>
+                    <Button icon={<Package/>} onClick={()=>{setSecao('produto'); setTitulo('Produto e transporte')}} active={secao==='produto'?true:false} color={corNavbar} primary hoverIndicator={{background:{color:'accent-1',opacity:'weak'}}}/>
                     <Button icon={<Download/>} color={corNavbar} primary hoverIndicator={{background:{color:'accent-1',opacity:'weak'}}}/>
                 </Nav>
 
@@ -87,7 +92,7 @@ function TrackingOverlay({ id, handle }) {
                     align='center'
                     height='large'
                     background='light-1'
-                    width='50vw'
+                    width={secao ==='relatorio' ? '70vw' :'55vw'}
                     round='medium'
                 >
                     <Box
@@ -111,8 +116,9 @@ function TrackingOverlay({ id, handle }) {
                         fill='horizontal'
                         margin={{bottom:'medium'}}
                     >
-                        {secao =='historico' && (<DeliveryHistorySection contract={contract}/>)}
-                        {secao =='produto' && (<ProductShippingSection contract={contract}/>)}
+                        {secao ==='historico' && (<DeliveryHistorySection contract={contract}/>)}
+                        {secao ==='produto' && (<ProductShippingSection contract={contract}/>)}
+                        {secao ==='relatorio' && (<IndividualReportSection data={relatorio} recentAtt={contract[0]}/>)}
                     </Box>
                 </Box>
             </Box>

@@ -238,5 +238,31 @@
             "timestamp": "2022-06-04T23:55:09.748Z",
             "transactionId": "b7f59f9825579ba60f78330500de53688eac067b62863e5a4cb11afef91c3ca6"
         }
-    ]
+    ],
+    "relatorioIndividual": {
+        "co2TotalEmitido": 27.71,
+        "transportadoraMaisFrequente": "Jack sparrow marítima",
+        "distanciaTotal": 2322.0,
+        "eficienciaDaGeracao": 0.64,
+        "emissaoMediaPorEmpresa": {
+            "Jack sparrow marítima": 0.01,
+            "Maloc express": 0.14
+        },
+        "fontesDeEnergiaUsadas": {
+            "Eolica": 1,
+            "Solar": 2
+        },
+        "tiposDeVeiculosESuasQtd": {
+            "Navio de carga": 1,
+            "Caminhao": 1
+        },
+        "emissaoMediaPorVeiculo": {
+            "Navio de carga": 0.01,
+            "Caminhao": 0.14
+        },
+        "empresasESuasQtd": {
+            "Jack sparrow marítima": 1,
+            "Maloc express": 1
+        }
+    }
 }
