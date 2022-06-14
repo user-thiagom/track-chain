@@ -1,0 +1,37 @@
+{
+  "co2TotalEmitido": 4419.26,
+  "transportadoraMaisFrequente": "Long express",
+  "distanciaTotal": 10220.0,
+  "eficienciaDaGeracao": 0.74,
+  "emissaoMediaPorEmpresa": {
+    "Long express": 0.56,
+    "Brazuca express": 0.14,
+    "Stranger express": 0.16,
+    "Jack sparrow marítima": 0.01,
+    "Maloc express": 0.14
+  },
+  "fontesDeEnergiaUsadas": { "Solar": 1, "Eolica": 1 },
+  "tiposDeVeiculosESuasQtd": {
+    "Navio de carga": 1,
+    "Caminhao": 2,
+    "Caminhão": 1,
+    "Avião": 1
+  },
+  "emissaoMediaPorVeiculo": {
+    "Navio de carga": 0.01,
+    "Caminhao": 0.14,
+    "Caminhão": 0.16,
+    "Avião": 0.56
+  },
+  "empresasESuasQtd": {
+    "Long express": 1,
+    "Brazuca express": 1,
+    "Stranger express": 1,
+    "Jack sparrow marítima": 1,
+    "Maloc express": 1
+  },
+  "h2MaisSolicitado": "H2 Azul",
+  "tiposEQtdDeH2Transportados": { "H2 Azul": 1, "H2 Verde": 1 },
+  "energiaMediaGasta": 14.5,
+  "volumeMedioH2": 10.67
+}
