@@ -1,12 +1,19 @@
-import { Box, Button, Card, CardBody, CardFooter, CardHeader, Layer } from 'grommet'
+import { Box, Button, Layer, Nav, Text } from 'grommet'
+import { Analytics, Download, History, Package } from 'grommet-icons'
 import React, { useEffect, useState } from 'react'
-import CardTrackingInfo from '../../Components/CardTrackingInfo'
+import DeliveryHistorySection from '../../Components/DeliveryHistorySection'
+import ProductShippingSection from '../../Components/ProductShippingSection'
 import WaitSpinner from '../../Components/WaitSpinner'
 import { api } from '../../Services/api'
 
 function TrackingOverlay({ id, handle }) {
     const [contract, setContract] = useState([])
     const [loading, setLoading] = useState(true)
+    const [secao, setSecao] = useState('historico');
+    const [titulo, setTitulo] = useState('Histórico de Entrega')
+
+    const corNavbar = '#06936D'
+
 
     useEffect(() => {
         setTimeout(() => {
@@ -44,45 +51,69 @@ function TrackingOverlay({ id, handle }) {
         <Layer
             onEsc={() => { handle(false) }}
             onClickOutside={() => { handle(false) }}
-            full='horizontal'
+            
             position='center'
+            modal={true}
             margin={{
                 horizontal: 'xlarge'
             }}
             className='overlay'
+            background='rgba(110, 110, 113, 0.01)'
         >
             <Box
-                direction='row'
-                justify='between'
-                align='center'
-                height='large'
-                background='brand'
+            direction='row'
+            justify='center'
+            align='center'
             >
+
+                <Nav
+                direction='column'
+                justify='center'
+                align='end'
+                gap='xxsmall'
+                background={corNavbar}
+                round='small'
+                >
+                    <Button icon={<Analytics/>} onClick={()=>{setSecao('relatorio'); setTitulo('Relatório da entrega');}} active={secao=='relatorio'?true:false} color={corNavbar} primary hoverIndicator={{background:{color:'accent-1',opacity:'weak'}}}/>
+                    <Button icon={<History/>} onClick={()=>{setSecao('historico'); setTitulo('Histórico da entrega');}} active={secao=='historico'?true:false} color={corNavbar} primary hoverIndicator={{background:{color:'accent-1',opacity:'weak'}}}/>
+                    <Button icon={<Package/>} onClick={()=>{setSecao('produto'); setTitulo('Produto e transporte')}} active={secao=='produto'?true:false} color={corNavbar} primary hoverIndicator={{background:{color:'accent-1',opacity:'weak'}}}/>
+                    <Button icon={<Download/>} color={corNavbar} primary hoverIndicator={{background:{color:'accent-1',opacity:'weak'}}}/>
+                </Nav>
+
                 <Box
-                    background='neutral-1'
                     direction='column'
-                    justify='center'
-                    align='start'
-                    height='100%'
-                    gap='xsmall'
-                    pad='small'
-                >
-                    {contract.map((history)=>{
-                        return <CardTrackingInfo data={history}/>
-                    })}
-
-                </Box>
-                <Box
-                    direction='row'
-                    justify='start'
+                    justify='between'
                     align='center'
-                    gap='small'
-                    fill='vertical'
+                    height='large'
+                    background='light-1'
+                    width='50vw'
+                    round='medium'
                 >
-                    <Button label='Fechar' onClick={() => handle(false)} hoverIndicator />
-                    <Button label='Relatório de Poluição' primary hoverIndicator />
-                </Box>
+                    <Box
+                        justify='center'
+                        align='center'
+                        margin={{top: 'medium'}}
+                        height='xxsmall'
+                        width='small'
+                        background={corNavbar}
+                        round='large'
+                        elevation='medium'
+                    >
+                        <Text color='light-1'>{titulo}</Text>
+                    </Box>
 
+                    <Box
+                        direction='column'
+                        justify='center'
+                        align='center'
+                        height='100%'
+                        fill='horizontal'
+                        margin={{bottom:'medium'}}
+                    >
+                        {secao =='historico' && (<DeliveryHistorySection contract={contract}/>)}
+                        {secao =='produto' && (<ProductShippingSection contract={contract}/>)}
+                    </Box>
+                </Box>
             </Box>
 
         </Layer>
