@@ -34,10 +34,10 @@ function SideMenu({handlerFunction}) {
                     gap='15px'
                     width='medium'
                 >
-                    <Button href='search' label='Pesquisa (pag teste)' icon={<Location />} hoverIndicator primary justify='start' gap='xsmall' className='btn-grommet'/>
-                    <Button href='/' label='Home' icon={<Clipboard />} hoverIndicator primary justify='start' gap='xsmall' className='btn-grommet'/>
-                    <Button label='Relatório' icon={<Clipboard />} hoverIndicator primary justify='start' gap='xsmall' className='btn-grommet'/>
-                    <Button label='Relatório' icon={<Clipboard />} hoverIndicator primary justify='start' gap='xsmall' className='btn-grommet'/>
+                    <Button href='/' label='Home' icon={<Location />} hoverIndicator primary justify='start' gap='xsmall' className='btn-grommet'/>
+                    <Button href='/relatorio' label='Relatorio' icon={<Clipboard />} hoverIndicator primary justify='start' gap='xsmall' className='btn-grommet'/>
+                    <Button label='Conta' icon={<Clipboard />} hoverIndicator primary justify='start' gap='xsmall' className='btn-grommet'/>
+                    <Button label='Sobre' icon={<Clipboard />} hoverIndicator primary justify='start' gap='xsmall' className='btn-grommet'/>
                 </Box>
             </Sidebar>
         </Layer>

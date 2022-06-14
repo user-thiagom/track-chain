@@ -18,7 +18,7 @@ function TrackingPage() {
 
   useEffect(() => {
     setTimeout(() => {
-      api.get("contratos").then(response => {
+      api.get("").then(response => {
         console.log(response.data)
         setLoading(false)
         setContracts(response.data)

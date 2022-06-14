@@ -17,10 +17,11 @@ function TrackingOverlay({ id, handle }) {
 
     useEffect(() => {
         setTimeout(() => {
-            api.get("contratoId").then(response => {
+            api.get("historico/"+id).then(response => {
                 console.log(response.data)
                 setLoading(false)
                 setContract(response.data)
+                console.log(response);
             })
         }, 2000)
     }, [])
