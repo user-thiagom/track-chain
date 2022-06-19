@@ -10,7 +10,7 @@ function CardGroup({ data, clickCard }) {
                 data.map((contrato) => {
 
                     return (
-                        <Card onClick={()=>clickCard(contrato)} animation='fadeIn' className='card' height='140px' width="xlarge" background="light-1" margin={{top: 'small'}} elevation='medium' direction='row'>
+                        <Card wrap onClick={()=>clickCard(contrato)} animation='fadeIn' className='card' height='140px' width="xlarge" background="light-1" margin={{top: 'small'}} elevation='medium' direction='row'>
                             <CardHeader pad='40px' background={contrato.situacao == 'Entregue' ? 'status-ok' : 'status-warning'}>
                             </CardHeader>
 

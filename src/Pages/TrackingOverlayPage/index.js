@@ -39,15 +39,17 @@ function TrackingOverlay({ id, handle }) {
                 margin={{
                     horizontal: 'xlarge'
                 }}
+                background='rgba(110, 110, 113, 0.01)'
             >
                 <Box
                     direction='column'
                     justify='center'
                     align='center'
                     height='large'
-                    background='brand'
+                    width='55vw'
+                    alignSelf='center'
                 >
-                    <WaitSpinner ani={false} fill />
+                    <WaitSpinner back='light-5' fill round='medium'/>
                 </Box>
             </Layer>
         )

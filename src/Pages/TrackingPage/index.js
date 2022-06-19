@@ -32,7 +32,7 @@ function TrackingPage() {
     console.log(datum)
   }
 
-  const teste = contracts.map((con) => {
+  const cardData = contracts.map((con) => {
     return {
       key: con.key,
       ultimoEndereco: con.entrega.localRecebimento,
@@ -104,9 +104,10 @@ function TrackingPage() {
             elevation='medium'
             background='light-1'
             round='small'
+            
           >
             <Text size='24px'>Entregas Rastreáveis</Text>
-            <TrackingCards dados={teste} clickRow={click} />
+            <TrackingCards dados={cardData} clickRow={click} />
           </Box>
         </Box>
 

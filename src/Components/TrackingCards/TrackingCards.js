@@ -6,7 +6,7 @@ function TrackingCards({ dados, clickRow }) {
     const [dadosT, setDadosT] = useState(dados)
 
     return (
-        <Box wrap direction='column' justify='center' align='center' overflow='auto' fill='horizontal' pad={{bottom:'small'}}>
+        <Box wrap direction='row' justify='center' align='center' fill='horizontal' overflow='auto'  pad={{bottom:'small'}}>
             <CardGroup data={dadosT} clickCard={clickRow}/>
         </Box>
     )

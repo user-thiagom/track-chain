@@ -52,10 +52,10 @@ function IndividualReportSection({ data, recentAtt }) {
                             {recentAtt.entrega.foiEntregue ? "ENTREGUE" : "EM TRANSPORTE"}
                         </Text>
                         <Box>
-                            <Text size="small">
+                            <Text size="medium">
                                 Endereço atual
                             </Text>
-                            <Text>
+                            <Text size='large' weight='bold'>
                                 {recentAtt.entrega.foiEntregue ? recentAtt.entrega.localEntrega : recentAtt.entrega.localRecebimento}
                             </Text>
                         </Box>

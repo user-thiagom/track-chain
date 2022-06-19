@@ -1,37 +1,38 @@
 import { Box, Text } from 'grommet'
 import React from 'react'
 
-function index({ contract }) {
+function ProductShippingSection({ contract }) {
     const ultimoContrato = contract[0]
 
     return (
-        <Box
+        <Box //Container
         align="center"
         justify="center"
         direction="row"
-        width="large"
-        height="50vh"
+        width="50vw"
+        height="55vh"
         elevation="large"
         gap="medium"
         pad="medium"
         round='medium'
         animation='fadeIn'
         >
-            <Box align="center"
+            <Box //Container da primeira coluna
+            align="center"
             justify="center"
             direction="column"
-            width="medium"
-            height='medium'
+            height='50vh'
             gap="medium"
             >
-                <Box
+                <Box //Card 1
                 align="center"
                 justify="start"
                 direction="row"
                 elevation="large"
-                width="medium"
+                width="25vw"
                 height="small"
                 gap="large"
+                round='medium'
                 pad={{ "left": "medium" }}
                 >
                     <Box
@@ -43,10 +44,10 @@ function index({ contract }) {
                         align="start"
                         justify="center"
                         >
-                            <Text size="medium">
+                            <Text size="large">
                                 Tipo
                             </Text>
-                            <Text size="large" weight="bold">
+                            <Text size="xlarge" weight="bold">
                                 {ultimoContrato.produto.tipo}
                             </Text>
                         </Box>
@@ -55,10 +56,10 @@ function index({ contract }) {
                         align="start"
                         justify="center"
                         >
-                            <Text size="medium">
+                            <Text size="large">
                                 Pressão
                             </Text>
-                            <Text size="large" weight="bold">
+                            <Text size="xlarge" weight="bold">
                                 {ultimoContrato.produto.pressaoTanqueEmMPa} MPa
                             </Text>
                         </Box>
@@ -73,10 +74,10 @@ function index({ contract }) {
                         align="start"
                         justify="center"
                         >
-                            <Text size="medium">
+                            <Text size="large">
                                 Pureza
                             </Text>
-                            <Text size="large" weight="bold">
+                            <Text size="xlarge" weight="bold">
                                 {ultimoContrato.produto.purezaPorcen}%
                             </Text>
                         </Box>
@@ -85,23 +86,24 @@ function index({ contract }) {
                         align="start"
                         justify="center"
                         >
-                            <Text size="medium">
+                            <Text size="large">
                                 Temperatura
                             </Text>
-                            <Text size="large" weight="bold">
+                            <Text size="xlarge" weight="bold">
                                 {ultimoContrato.produto.temperatura} °C
                             </Text>
                         </Box>
                     </Box>
                 </Box>
 
-                <Box
+                <Box //Card 2
                 align="start"
                 justify="center"
                 direction="column"
                 elevation="large"
                 height="small"
-                width="medium"
+                width="25vw"
+                round='medium'
                 pad={{ "left": "medium" }}
                 >
                     <Box
@@ -113,10 +115,10 @@ function index({ contract }) {
                         align="start"
                         justify="center"
                         >
-                            <Text size="medium">
+                            <Text size="large">
                                 Identificador do transporte
                             </Text>
-                            <Text size="large" weight="bold">
+                            <Text size="xlarge" weight="bold">
                                 {ultimoContrato.entrega.transporte.identificadorVeiculo.toUpperCase()}
                             </Text>
                         </Box>
@@ -132,10 +134,10 @@ function index({ contract }) {
                         align="start"
                         justify="center"
                         >
-                            <Text size="medium">
+                            <Text size="large">
                                 Tipo de veiculo
                             </Text>
-                            <Text size="large" weight="bold">
+                            <Text size="xlarge" weight="bold">
                                 {ultimoContrato.entrega.transporte.tipoVeiculo}
                             </Text>
                         </Box>
@@ -144,10 +146,10 @@ function index({ contract }) {
                         align="start"
                         justify="center"
                         >
-                            <Text size="medium">
+                            <Text size="large">
                                 Emissão
                             </Text>
-                            <Text size="large" weight="bold">
+                            <Text size="xlarge" weight="bold">
                                 {ultimoContrato.entrega.transporte.emissaoPorKm} Kg/Km
                             </Text>
                         </Box>
@@ -155,24 +157,25 @@ function index({ contract }) {
                 </Box>
             </Box>
 
-            <Box
+            <Box //Container Segunda Coluna
             align="start"
             justify="center"
             direction="column"
-            height="medium"
+            height="43vh"
             elevation="medium"
             gap="medium"
+            round='medium'
             pad={{ "left": "medium" }}
-            width="medium"
+            width="25vw"
             >
                 <Box
                 align="start"
                 justify="center"
                 >
-                    <Text size="medium">
+                    <Text size="large">
                         Volume de H2 gerado por hora
                     </Text>
-                    <Text size="large" weight="bold">
+                    <Text size="xlarge" weight="bold">
                         {ultimoContrato.produto.producao.volumeGeradoHr} m³
                     </Text>
                 </Box>
@@ -181,10 +184,10 @@ function index({ contract }) {
                 align="start"
                 justify="center"
                 >
-                    <Text size="medium">
+                    <Text size="large">
                         Energia consumida para compressão
                     </Text>
-                    <Text size="large" weight="bold">
+                    <Text size="xlarge" weight="bold">
                         {ultimoContrato.produto.producao.energiaConsumidaEmMJ} MJ
                     </Text>
                 </Box>
@@ -193,10 +196,10 @@ function index({ contract }) {
                 align="start"
                 justify="center"
                 >
-                    <Text size="medium">
+                    <Text size="large">
                         Eficiência
                     </Text>
-                    <Text size="large" weight="bold">
+                    <Text size="xlarge" weight="bold">
                         80%
                     </Text>
                 </Box>
@@ -205,10 +208,10 @@ function index({ contract }) {
                 align="start"
                 justify="center"
                 >
-                    <Text size="medium">
+                    <Text size="large">
                         Fonte de energia usada na compressão
                     </Text>
-                    <Text size="large" weight="bold">
+                    <Text size="xlarge" weight="bold">
                         {ultimoContrato.produto.producao.fonteEnergiaPProducao}
                     </Text>
                 </Box>
@@ -217,4 +220,4 @@ function index({ contract }) {
     )
 }
 
-export default index
+export default ProductShippingSection
