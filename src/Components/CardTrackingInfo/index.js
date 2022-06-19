@@ -7,8 +7,8 @@ function CardTrackingInfo({ data }) {
 
     return (
         <Card 
-        height="15vh"
-        width="large"
+        height="18vh"
+        width="50vw"
         elevation='medium'
         animation={{type:'slideUp', delay:4, duration:2000, size:'large'}}
         >
@@ -74,7 +74,8 @@ function CardTrackingInfo({ data }) {
                     <Box
                     align="stretch"
                     justify="center"
-                    width="medium"
+                    width="30vw"
+                    
                     >
                         <Text size="small">
                             Destino
@@ -110,7 +111,7 @@ function CardTrackingInfo({ data }) {
                     <Box 
                     align="stretch"
                     justify="center"
-                    width="medium"
+                    width="30vw"
                     >
                         <Text size="small">
                             Local recebimento
