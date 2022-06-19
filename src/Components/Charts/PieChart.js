@@ -2,7 +2,7 @@ import { Pie } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export const PieChart = ({ chartData, text, wid, hei}) => {
+export const PieChart = ({ chartData, text, wid, hei, fontSize=15}) => {
   return (
     <div>
       <Pie
@@ -13,7 +13,10 @@ export const PieChart = ({ chartData, text, wid, hei}) => {
           plugins: {
             title: {
               display: true,
-              text: text
+              text: text,
+              font:{
+                size: fontSize
+              }
             },
             legend: {
               display: true,

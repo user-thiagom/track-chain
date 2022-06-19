@@ -150,7 +150,7 @@ function ProductShippingSection({ contract }) {
                                 Emissão
                             </Text>
                             <Text size="xlarge" weight="bold">
-                                {ultimoContrato.entrega.transporte.emissaoPorKm} Kg/Km
+                                {parseFloat(ultimoContrato.entrega.transporte.emissaoPorKm).toFixed(2)} Kg/Km
                             </Text>
                         </Box>
                     </Box>

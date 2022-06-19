@@ -21,7 +21,7 @@ ChartJS.register(
   Legend
 );
 
-export const LineChart = ({ chartData, text }) => {
+export const LineChart = ({ chartData, text, fontSize=15 }) => {
   return (
     <div>
       <Line aria-setsize={"20px"}
@@ -31,6 +31,10 @@ export const LineChart = ({ chartData, text }) => {
             title: {
               display: true,
               text: text,
+              font:{
+                size: fontSize,
+          
+              }
             },
             legend: {
               display: false,

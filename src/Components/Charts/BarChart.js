@@ -19,7 +19,7 @@ ChartJS.register(
   Legend
 );
 
-export const BarChart = ({ chartData, text }) => {
+export const BarChart = ({ chartData, text, fontSize=15 }) => {
   return (
     <div>
       <Bar
@@ -30,6 +30,10 @@ export const BarChart = ({ chartData, text }) => {
             title: {
               display: true,
               text: text,
+              fullSize: true,
+              font:{
+                size: fontSize
+              }
             },
             legend: {
               display: false,

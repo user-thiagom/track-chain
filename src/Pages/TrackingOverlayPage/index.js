@@ -19,12 +19,12 @@ function TrackingOverlay({ id, handle }) {
 
     useEffect(() => {
         setTimeout(() => {
-            api.get("contratoId").then(response => {
+            api.get("/historico/"+id).then(response => {
                 console.log(response.data)
                 setContract(response.data)
                 console.log(response);
             })
-            api.get('relatorioIndividual').then(response=>{
+            api.get('/relatorio/'+id).then(response=>{
                 setRelatorio(response.data)
             })
             setLoading(false)

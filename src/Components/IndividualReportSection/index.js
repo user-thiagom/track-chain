@@ -116,8 +116,10 @@ function IndividualReportSection({ data, recentAtt }) {
                     round='medium'
                     elevation='medium'
                 >
+                    <Box>
+                        <PieChart chartData={tipoVeiculos} text='TIPOS DE VEICULOS UTILIZADOS' fontSize={12}/>
 
-                    <PieChart chartData={tipoVeiculos} text='TIPO DE VEICULO UTILIZADO NO TRANSPORTE' />
+                    </Box>
 
                 </Box>
             </Box>
@@ -142,7 +144,7 @@ function IndividualReportSection({ data, recentAtt }) {
                         width='75%'
                     >
 
-                        <LineChart chartData={emissaoPorVeiculo} text='EMISSÃO DE POLUIÇÃO POR VEÍCULO' />
+                        <LineChart chartData={emissaoPorVeiculo} text='EMISSÃO DE CO2(Kg/Km) POR VEÍCULO' />
                     </Box>
                 </Box>
 
@@ -157,7 +159,7 @@ function IndividualReportSection({ data, recentAtt }) {
                     <Box
                         width='75%'
                     >
-                        <LineChart chartData={emissaoPorEmpresa} text='EMISSÃO DE POLUIÇÃO POR TRANSPORTADORA' />
+                        <LineChart chartData={emissaoPorEmpresa} text='EMISSÃO DE CO2(Kg/Km) POR TRANSPORTADORA' />
                     </Box>
                 </Box>
             </Box>

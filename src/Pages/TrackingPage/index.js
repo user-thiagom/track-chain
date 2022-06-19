@@ -18,7 +18,7 @@ function TrackingPage() {
 
   useEffect(() => {
     setTimeout(() => {
-      api.get("contratos").then(response => {
+      api.get("").then(response => {
         console.log(response.data)
         setLoading(false)
         setContracts(response.data)
@@ -32,7 +32,7 @@ function TrackingPage() {
     console.log(datum)
   }
 
-  const cardData = contracts.map((con) => {
+  const teste = contracts.map((con) => {
     return {
       key: con.key,
       ultimoEndereco: con.entrega.localRecebimento,
@@ -104,10 +104,9 @@ function TrackingPage() {
             elevation='medium'
             background='light-1'
             round='small'
-            
           >
             <Text size='24px'>Entregas Rastreáveis</Text>
-            <TrackingCards dados={cardData} clickRow={click} />
+            <TrackingCards dados={teste} clickRow={click} />
           </Box>
         </Box>
 

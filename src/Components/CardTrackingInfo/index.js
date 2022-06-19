@@ -17,6 +17,7 @@ function CardTrackingInfo({ data }) {
             direction="column"
             justify="center"
             align="start"
+            
             >
                 <Box
                 align="center"
@@ -24,6 +25,8 @@ function CardTrackingInfo({ data }) {
                 direction="row"
                 gap="xxsmall"
                 fill="horizontal"
+                margin={{bottom:'small'}}
+
                 >
                     <Box
                     align="center"
@@ -50,75 +53,77 @@ function CardTrackingInfo({ data }) {
                     </Text>
                 </Box>
 
-                <Box
-                align="center"
-                justify="start"
-                direction="row"
-                fill="horizontal"
-                gap="large"
-                >
+                <Box  fill="horizontal">
                     <Box
-                    align="stretch"
-                    justify="center"
-                    direction="column"
-                    width="small"
+                    align="start"
+                    justify="start"
+                    direction="row"
+                    fill="horizontal"
+                    gap="large"
                     >
-                        <Text size="small">
-                            Responsável Pela entrega
-                        </Text>
-                        <Text size="medium" weight="bold">
-                            {data.entrega.responsavelTransporte.nome}
-                        </Text>
+                        <Box
+                        align="stretch"
+                        justify="center"
+                        direction="column"
+                        width="small"
+                        >
+                            <Text size="small">
+                                Responsável Pela entrega
+                            </Text>
+                            <Text size="medium" weight="bold">
+                                {data.entrega.responsavelTransporte.nome}
+                            </Text>
+                        </Box>
+
+                        <Box
+                        align="stretch"
+                        justify="center"
+                        width="90%"
+                        
+                        >
+                            <Text size="small">
+                                Destino
+                            </Text>
+
+                            <Text size="medium" weight="bold">
+                                {data.entrega.localEntrega}
+                            </Text>
+                        </Box>
                     </Box>
 
                     <Box
-                    align="stretch"
-                    justify="center"
-                    width="30vw"
-                    
+                    align="start"
+                    justify="start"
+                    direction="row"
+                    fill="horizontal"
+                    gap="large"
                     >
-                        <Text size="small">
-                            Destino
-                        </Text>
+                        <Box
+                        align="stretch"
+                        justify="center"
+                        direction="column"
+                        width="small"
+                        >
+                            <Text size="small">
+                                Distancia média
+                            </Text>
+                            <Text size="medium" weight="bold">
+                                {data.entrega.distanciaMedia}
+                            </Text>
+                        </Box>
 
-                        <Text size="medium" weight="bold">
-                            {data.entrega.localEntrega}
-                        </Text>
-                    </Box>
-                </Box>
-
-                <Box
-                align="center"
-                justify="start"
-                direction="row"
-                fill="horizontal"
-                gap="large"
-                >
-                    <Box
-                    align="stretch"
-                    justify="center"
-                    direction="column"
-                    width="small"
-                    >
-                        <Text size="small">
-                            Distancia média
-                        </Text>
-                        <Text size="medium" weight="bold">
-                            {data.entrega.distanciaMedia}
-                        </Text>
-                    </Box>
-
-                    <Box 
-                    align="stretch"
-                    justify="center"
-                    width="30vw"
-                    >
-                        <Text size="small">
-                            Local recebimento
-                        </Text>
-                        <Text size="medium" weight="bold">
-                            {data.entrega.localRecebimento}
-                        </Text>
+                        <Box 
+                        align="stretch"
+                        justify="center"
+                        width="90%"
+                        >
+                            <Text size="small">
+                                Local recebimento
+                            </Text>
+                            <Text size="medium" weight="bold">
+                                {data.entrega.localRecebimento}
+                            </Text>
+                        </Box>
                     </Box>
                 </Box>
             </CardBody>

@@ -20,12 +20,13 @@ export const fromJsonToChartData = (response) => {
         label: "",
         data: [],
         backgroundColor: [
-          "#11D470",
-          "#A8EB1E",
-          "#D49E11",
-          '#ED4B13',
-          '#D9485D',
-          '#AD67F5'
+          "#0B84A5",
+          "#F6C85F",
+          "#6F4E7C",
+          '#9DD866',
+          '#CA472F',
+          '#FFA056',
+          '#8DDDD0'
 
         ],
         hoverOffset: 4,
@@ -53,7 +54,7 @@ function Dashboard() {
 
   useEffect(() => {
     setTimeout(() => {
-      api.get("relatorioGeral").then((response) => {
+      api.get("/relatorio").then((response) => {
         console.log(response.data);
         setLoading(false);
         setDados(response.data)
@@ -266,11 +267,12 @@ function Dashboard() {
                 </Box>
 
                 <Box //Coluna 2
-                  width='60%'
+                  width='70%'
                 >
                   <PieChart
                     chartData={tiposDeEnergia}
                     text={"Tipos de fontes de energia usadas na compressão"}
+                    fontSize={15}
                   />
                 </Box>
               </Box>
@@ -300,7 +302,8 @@ function Dashboard() {
                 >
                   <PieChart
                     chartData={tiposDeVeiculos}
-                    text={"Tipos de tipos de veiculos utilizados"}
+                    text={"Tipos de veiculos utilizados"}
+                    fontSize={16}
                   />
                 </Box>
                 <Box
@@ -309,6 +312,7 @@ function Dashboard() {
                   <PieChart
                     chartData={tipoH2Data}
                     text={"Tipos de H2 entregues"}
+                    fontSize={16}
                   />
                 </Box>
               </Box>
@@ -327,6 +331,7 @@ function Dashboard() {
                   <BarChart
                     chartData={emissaoMedia}
                     text={"Emissão de CO2(kg/km) por empresa"}
+                    fontSize={16}
                   />
                 </Box>
               </Box>
