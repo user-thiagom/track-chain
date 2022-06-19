@@ -448,7 +448,8 @@
         },
         "emissaoMediaPorVeiculo": {
             "Navio de carga": 0.01,
-            "Caminhao": 0.14
+            "Caminhao": 0.14,
+            "Avião": 0.05
         },
         "empresasESuasQtd": {
             "Jack sparrow marítima": 1,

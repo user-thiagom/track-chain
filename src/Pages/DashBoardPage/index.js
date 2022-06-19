@@ -5,6 +5,7 @@ import {
 import { Menu } from "grommet-icons";
 import { useEffect, useState } from "react";
 import { BarChart } from "../../Components/Charts/BarChart";
+import { LineChart } from "../../Components/Charts/LineChart";
 import { PieChart } from "../../Components/Charts/PieChart";
 import SideMenu from "../../Components/SideMenu/SideMenu";
 import WaitSpinner from "../../Components/WaitSpinner";
@@ -19,9 +20,13 @@ export const fromJsonToChartData = (response) => {
         label: "",
         data: [],
         backgroundColor: [
-          "rgb(255, 99, 132)",
-          "rgb(54, 162, 235)",
-          "rgb(255, 205, 86)",
+          "#11D470",
+          "#A8EB1E",
+          "#D49E11",
+          '#ED4B13',
+          '#D9485D',
+          '#AD67F5'
+
         ],
         hoverOffset: 4,
       },
@@ -261,7 +266,7 @@ function Dashboard() {
                 </Box>
 
                 <Box //Coluna 2
-                  fill='horizontal'
+                  width='60%'
                 >
                   <PieChart
                     chartData={tiposDeEnergia}
@@ -291,7 +296,7 @@ function Dashboard() {
                 direction="row"
               >
                 <Box
-                fill='horizontal'
+                width='40%'
                 >
                   <PieChart
                     chartData={tiposDeVeiculos}
@@ -299,7 +304,7 @@ function Dashboard() {
                   />
                 </Box>
                 <Box
-                fill='horizontal'
+                width='40%'
                 >
                   <PieChart
                     chartData={tipoH2Data}

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Box, Meter, Stack, Text } from 'grommet'
 import { CheckboxSelected, CircleInformation } from 'grommet-icons'
 import { PieChart } from '../Charts/PieChart'
-import {fromJsonToChartData} from '../../Pages/DashBoardPage'
+import { fromJsonToChartData } from '../../Pages/DashBoardPage'
 import { BarChart } from '../Charts/BarChart'
 import { LineChart } from '../Charts/LineChart'
 
@@ -20,28 +20,31 @@ function IndividualReportSection({ data, recentAtt }) {
                 justify='center'
                 align='center'
                 gap='small'
-                margin={{bottom:'small'}}
+                margin={{ bottom: 'small' }}
             >
                 <Box //Card 1
                     justify='center'
-                    align='center'
+                    align='start'
                     height='25vh'
-                    width='16vw'
+                    width='25vw'
                     round='medium'
                     elevation='medium'
+                    pad={{ left: 'medium', right: 'medium' }}
                 >
                     <Box
                         align="start"
                         justify="center"
-                        width='13vw'
+                        fill='horizontal'
                         height='15vh'
                         gap='xsmall'
+
                     >
                         <Box
                             lign="center"
                             fill='horizontal'
                             justify="between"
                             direction="row"
+
                         >
                             <Text size="medium">
                                 SITUAÇÃO
@@ -114,63 +117,48 @@ function IndividualReportSection({ data, recentAtt }) {
                     elevation='medium'
                 >
 
-                    <PieChart chartData={energiaUsada} text='FONTES DE ENERGIA  USADAS NA PRODUÇÃO'/>
-
-                </Box>
-
-                <Box //Card 4
-                    justify='center'
-                    align='center'
-                    height='25vh'
-                    width='16vw'
-                    round='medium'
-                    elevation='medium'
-                >
-
-                    <PieChart chartData={tipoVeiculos} text='TIPO DE VEICULO UTILIZADO NO TRANSPORTE'/>
+                    <PieChart chartData={tipoVeiculos} text='TIPO DE VEICULO UTILIZADO NO TRANSPORTE' />
 
                 </Box>
             </Box>
 
             <Box //Linha 2
-            direction='row'
-            justify='center'
-            align='center'
-            gap='small'
+                direction='row'
+                justify='center'
+                align='center'
+                gap='small'
             >
+
+
                 <Box //Card 1
                     justify='center'
                     align='center'
                     height='25vh'
-                    width='16vw'
+                    width='28vw'
                     round='medium'
                     elevation='medium'
                 >
+                    <Box
+                        width='75%'
+                    >
 
-                    <PieChart chartData={empresas} text='TRANSPORTADORAS'/>
-
-                </Box>
-
-                <Box //Card 2
-                    justify='center'
-                    align='center'
-                    height='25vh'
-                    width='20vw'
-                    round='medium'
-                    elevation='medium'
-                >
-                    <BarChart chartData={emissaoPorVeiculo} text='EMISSÃO DE POLUIÇÃO POR VEÍCULO'/>
+                        <LineChart chartData={emissaoPorVeiculo} text='EMISSÃO DE POLUIÇÃO POR VEÍCULO' />
+                    </Box>
                 </Box>
 
                 <Box //Card 3
                     justify='center'
                     align='center'
                     height='25vh'
-                    width='20vw'
+                    width='28vw'
                     round='medium'
                     elevation='medium'
                 >
-                    <BarChart chartData={emissaoPorEmpresa} text='EMISSÃO DE POLUIÇÃO POR TRANSPORTADORA'/>
+                    <Box
+                        width='75%'
+                    >
+                        <LineChart chartData={emissaoPorEmpresa} text='EMISSÃO DE POLUIÇÃO POR TRANSPORTADORA' />
+                    </Box>
                 </Box>
             </Box>
         </>
